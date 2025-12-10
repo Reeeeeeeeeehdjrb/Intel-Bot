@@ -786,10 +786,10 @@ async def export_report(interaction: discord.Interaction, format: str = "json"):
 if __name__ == "__main__":
     if not TOKEN:
         print("ERROR: DISCORD_BOT_TOKEN environment variable not set!")
-        print("Please add your Discord bot token to the Secrets.")
     else:
-        # Start the Flask webserver in a background thread
-        Thread(target=run).start()
-        # Start the Discord bot
+        # Start Flask in a background daemon thread so it won't block Discord bot
+        Thread(target=run, daemon=True).start()
+        # Run the Discord bot
         bot.run(TOKEN)
+
 
