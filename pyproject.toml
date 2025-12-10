@@ -3,7 +3,6 @@ name = "repl-nix-workspace"
 version = "0.1.0"
 description = "Perfect Intel Bot"
 authors = ["Your Name <you@example.com>"]
-packages = [{include = "my_bot"}]  # optional if you have subfolders
 
 [tool.poetry.dependencies]
 python = "^3.11"
