@@ -21,7 +21,6 @@ def run():
     port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port)
 
-Thread(target=run).start()
 
 
 TOKEN = os.getenv("DISCORD_BOT_TOKEN")
@@ -789,4 +788,8 @@ if __name__ == "__main__":
         print("ERROR: DISCORD_BOT_TOKEN environment variable not set!")
         print("Please add your Discord bot token to the Secrets.")
     else:
+        # Start the Flask webserver in a background thread
+        Thread(target=run).start()
+        # Start the Discord bot
         bot.run(TOKEN)
+
